@@ -18,31 +18,7 @@ public class Member implements Serializable {
     private String email;
 
 }
-//
-//
-//    CREATE TABLE users (
-//        id BIGINT NOT NULL AUTO_INCREMENT,
-//        first_name varchar(255) NOT NULL,
-//    last_name varchar(255) NOT NULL,
-//    email varchar(255) NOT NULL,
-//    username varchar(255) NOT NULL,
-//    password varchar(255) NOT NULL,
-//    PRIMARY KEY (id)
-//);
-//
-//        CREATE TABLE ideas (
-//        id BIGINT NOT NULL AUTO_INCREMENT,
-//        title varchar(255) NOT NULL,
-//        description text NOT NULL,
-//        url varchar(255),
-//        hidden bool DEFAULT false,
-//        owner BIGINT,
-//        FOREIGN KEY (owner)
-//        REFERENCES users(id)
-//        ON DELETE CASCADE,
-//        PRIMARY KEY (id)
-//        );
-//
+
 //        CREATE TABLE members (
 //        id BIGINT NOT NULL AUTO_INCREMENT,
 //        idea_id BIGINT,
