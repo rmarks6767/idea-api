@@ -1,4 +1,4 @@
-package org.csh.ideaapi.data.model;
+package org.csh.ideaapi.data.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,14 +1,13 @@
-package org.csh.ideaapi.data.dto;
+package org.csh.ideaapi.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Data
-@Table(name="members")
-public class MemberEntity {
+@Table(name = "members")
+public class MemberEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberId;
@@ -16,14 +15,14 @@ public class MemberEntity {
     public void setMemberId(Long memberId) { this.memberId = memberId; }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn("idea_id")
+    @JoinColumn(name = "idea_id")
     @JsonIgnoreProperties("members")
     private IdeaEntity idea;
     public IdeaEntity getIdea() { return idea; }
     public void setIdea(IdeaEntity idea) { this.idea = idea; }
 
-    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn("user_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private UserEntity user;
     public UserEntity getUser() { return user; }
     public void setUser(UserEntity user) { this.user = user; }

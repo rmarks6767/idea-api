@@ -1,6 +1,6 @@
 package org.csh.ideaapi.controller.v1.ideas;
 
-import org.csh.ideaapi.data.model.Idea;
+import org.csh.ideaapi.data.dto.Idea;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,10 +14,11 @@ public class IdeasController {
 
     @GetMapping
     public List<Idea> ideas() {
-        return new ArrayList<>() {{
-            add(new Idea());
-            add(new Idea());
-            add(new Idea());
-        }};
+        return new ArrayList<>();
+    }
+
+    @GetMapping("/hi")
+    public String hi() {
+        return "Hello!";
     }
 }

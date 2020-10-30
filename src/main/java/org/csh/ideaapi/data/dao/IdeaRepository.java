@@ -1,6 +1,6 @@
 package org.csh.ideaapi.data.dao;
 
-import org.csh.ideaapi.data.dto.IdeaEntity;
+import org.csh.ideaapi.data.entity.IdeaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
