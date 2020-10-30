@@ -12,23 +12,7 @@ import java.io.Serializable;
 public class Member implements Serializable {
 
     private Long id;
-    private Long userId;
-    private String firstName;
-    private String lastName;
-    private String email;
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
 }
-
-//        CREATE TABLE members (
-//        id BIGINT NOT NULL AUTO_INCREMENT,
-//        idea_id BIGINT,
-//        user_id BIGINT,
-//        FOREIGN KEY (idea_id)
-//        REFERENCES ideas(id)
-//        ON DELETE CASCADE,
-//        FOREIGN KEY (user_id)
-//        REFERENCES users(id)
-//        ON DELETE CASCADE,
-//        PRIMARY KEY (id)
-//        );
-

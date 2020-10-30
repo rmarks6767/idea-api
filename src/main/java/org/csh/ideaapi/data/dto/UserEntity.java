@@ -42,8 +42,8 @@ public class UserEntity {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("user")
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("owner")
     private List<IdeaEntity> ideas;
 
     public List<IdeaEntity> getIdeas() { return ideas; }
@@ -52,14 +52,21 @@ public class UserEntity {
 
         if (ideas != null) {
             for (IdeaEntity idea : ideas) {
-                idea.
+                idea.setOwner(this);
                 this.ideas.add(idea);
             }
         }
     }
     public void addIdea(IdeaEntity idea) {
-
+        if (ideas == null) {
+            ideas = new ArrayList<>();
+        }
+        idea.setOwner(this);
+        ideas.add(idea);
     }
+
+    @OneToOne(mappedBy = "member")
+    private MemberEntity member;
 }
 
 
