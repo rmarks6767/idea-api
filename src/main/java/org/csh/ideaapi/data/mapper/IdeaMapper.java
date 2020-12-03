@@ -13,13 +13,9 @@ import org.mapstruct.*;
 )
 public interface IdeaMapper  {
 
-    @Mappings({
-            @Mapping(target = "id", source = "ideaEntity.ideaId")
-    })
+    @Mapping(target = "id", source = "ideaEntity.ideaId")
     Idea ideaDTOtoIdea(IdeaEntity ideaEntity);
 
-    @Mappings({
-            @Mapping(target = "ideaId", source = "idea.id")
-    })
+    @Mapping(target = "ideaId", source = "idea.id")
     IdeaEntity ideaToIdeaDTO(Idea idea);
 }

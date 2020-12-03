@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements Serializable {
+public class Account implements Serializable {
 
     private Long id;
     public Long getId() { return id; }

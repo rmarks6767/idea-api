@@ -1,24 +1,32 @@
 package org.csh.ideaapi.controller.v1.ideas;
 
 import org.csh.ideaapi.data.dto.Idea;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.csh.ideaapi.service.IdeaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/v1/ideas")
 public class IdeasController {
 
+    @Autowired
+    IdeaService service;
+
     @GetMapping
-    public List<Idea> ideas() {
-        return new ArrayList<>();
+    public List<Idea> allIdeas() {
+        return service.getAllIdeas();
     }
 
-    @GetMapping("/hi")
-    public String hi() {
-        return "Hello!";
+    @GetMapping("/{accountId}") // TODO: Pagination is a later thing lmao
+    public List<Idea> ideas(@PathVariable(name = "accountId") Long accountId) {
+        return service.getIdeas(accountId);
     }
+
+    @PostMapping("/{accountId}")
+    public Idea createIdea(@PathVariable(name = "accountId") Long accountId, @RequestBody Idea idea) {
+        return service.createIdea(accountId, idea);
+    }
+
 }

@@ -15,8 +15,8 @@ public class IdeaEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ideaId;
-    public Long getId() { return ideaId; }
-    public void setId(Long id) { this.ideaId = id; }
+    public Long getIdeaId() { return ideaId; }
+    public void setIdeaId(Long ideaId) { this.ideaId = ideaId; }
 
     private String title;
     public String getTitle() { return title; }
@@ -38,9 +38,9 @@ public class IdeaEntity implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @JsonIgnoreProperties("ideas")
-    private UserEntity owner;
-    public UserEntity getOwner() { return owner; }
-    public void setOwner(UserEntity owner) { this.owner = owner; }
+    private AccountEntity owner;
+    public AccountEntity getOwner() { return owner; }
+    public void setOwner(AccountEntity owner) { this.owner = owner; }
 
     @OneToMany(mappedBy = "idea", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("idea")

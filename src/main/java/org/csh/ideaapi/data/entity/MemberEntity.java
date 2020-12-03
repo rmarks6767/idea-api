@@ -23,9 +23,9 @@ public class MemberEntity implements Serializable {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private UserEntity user;
-    public UserEntity getUser() { return user; }
-    public void setUser(UserEntity user) { this.user = user; }
+    private AccountEntity user;
+    public AccountEntity getUser() { return user; }
+    public void setUser(AccountEntity user) { this.user = user; }
 
 }
 

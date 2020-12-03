@@ -8,7 +8,8 @@ import org.mapstruct.Mappings;
 import org.mapstruct.NullValueCheckStrategy;
 
 @Mapper(
-        nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS
+    componentModel="spring",
+    nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS
 )
 public interface MemberMapper {
     @Mappings({

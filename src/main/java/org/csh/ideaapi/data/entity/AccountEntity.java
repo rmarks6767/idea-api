@@ -1,6 +1,7 @@
 package org.csh.ideaapi.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,14 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class UserEntity implements Serializable {
+@Table(name = "accounts")
+public class AccountEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-    public Long getUserId() { return userId; }
-    public void setUserId(Long userId) { this.userId = userId; }
+    private Long accountId;
+    public Long getAccountId() { return accountId; }
+    public void setAccountId(Long accountId) { this.accountId = accountId; }
 
     @Column(name = "first_name")
     private String firstName;
@@ -35,6 +36,7 @@ public class UserEntity implements Serializable {
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
